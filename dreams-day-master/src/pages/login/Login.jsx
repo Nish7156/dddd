@@ -23,7 +23,14 @@ const Login = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         dispatch({ type: "LOGIN", payload: user });
-        navigate("/user");
+
+        console.log(email, ">>>");
+
+        if (email === "dreamdayforu@gmail.com") {
+          navigate("/admin");
+        } else {
+          navigate("/user");
+        }
       })
       .catch((error) => {
         setError(true);
@@ -65,11 +72,7 @@ const Login = () => {
             </span>
           )}
 
-          <button
-            disabled={loading}
-            type="submit"
-            className="login-button"
-          >
+          <button disabled={loading} type="submit" className="login-button">
             {loading ? "Loading..." : "Sign In"}
           </button>
           <button

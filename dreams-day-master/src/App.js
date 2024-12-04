@@ -12,37 +12,8 @@ import User from "./pages/user/User";
 import LandingPage from "./pages/LandingPage";
 import { productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
-// import "./style/style.css";
 
-const AdminRoutes = () => (
-  <>
-    <Route path="/" element={<Home />} />
-    <Route path="users">
-      <Route index element={<User />} />
-      <Route path=":userId" element={<Single />} />
-      <Route
-        path="new"
-        element={<New inputs={userInputs} title="Add New User" />}
-      />
-    </Route>
-    <Route path="products">
-      <Route index element={<WithDrawl />} />
-      <Route path=":productId" element={<Single />} />
-      <Route
-        path="new"
-        element={<New inputs={productInputs} title="Add New Product" />}
-      />
-    </Route>
-  </>
-);
-
-const UserRoutes = () => (
-  <>
-    <Route path="/user" element={<User />} />
-  </>
-);
-
-function App() {
+const App = () => {
   const { darkMode } = useContext(DarkModeContext);
   const { currentUser } = useContext(AuthContext);
 
@@ -56,18 +27,18 @@ function App() {
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<LandingPage />} />
-          <Route path="login" element={<Login />} />
-          <Route path="profile" element={<Profile />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
 
           {/* Protected Routes */}
           <Route
-            path="*"
+            path="/*"
             element={
               <RequireAuth>
                 {currentUser?.email === "dreamdayforu@gmail.com" ? (
-                  <Routes>{AdminRoutes()}</Routes>
+                  <AdminRoutes />
                 ) : (
-                  <Routes>{UserRoutes()}</Routes>
+                  <UserRoutes />
                 )}
               </RequireAuth>
             }
@@ -76,6 +47,34 @@ function App() {
       </BrowserRouter>
     </div>
   );
-}
+};
+
+const AdminRoutes = () => (
+  <Routes>
+    <Route path="/admin" element={<Home />} />
+    <Route path="/admin/users">
+      <Route index element={<New />} />
+      <Route path=":userId" element={<Single />} />
+      <Route
+        path="new"
+        element={<New inputs={userInputs} title="Add New User" />}
+      />
+    </Route>
+    <Route path="/admin/products">
+      <Route index element={<WithDrawl />} />
+      <Route path=":productId" element={<Single />} />
+      <Route
+        path="new"
+        element={<New inputs={productInputs} title="Add New Product" />}
+      />
+    </Route>
+  </Routes>
+);
+
+const UserRoutes = () => (
+  <Routes>
+    <Route path="/user" element={<User />} />
+  </Routes>
+);
 
 export default App;

@@ -56,13 +56,13 @@ const Sidebar = () => {
             </li>
           </Link> */}
           <p className="title">LISTS</p>
-          <Link to="/users" style={{ textDecoration: "none" }}>
+          <Link to="/admin/users" style={{ textDecoration: "none" }}>
             <li>
               {/* <AccountCircleIcon color={"disabled"} classname="icon" /> */}
               <span>Users</span>
             </li>
           </Link>
-          <Link to="/products" style={{ textDecoration: "none" }}>
+          <Link to="/admin/products" style={{ textDecoration: "none" }}>
             <li>
               {/* <AddBusinessIcon color="secondary" classname="icon" /> */}
               <span>Withdrawal Requests</span>
