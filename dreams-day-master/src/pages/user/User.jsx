@@ -26,12 +26,15 @@ const User = () => {
     setIsOpen(true);
   }, []);
 
+  console.log(loggedInUSer, "dddddd");
+
   return (
     <div className="user-dashboard">
       <Sidebar
         name={loggedInUSer?.name}
         phone={loggedInUSer?.mobile}
         email={loggedInUSer?.email}
+        userId={loggedInUSer?.uid}
       />
       <div className="dashboard-content">
         <div className="charts">

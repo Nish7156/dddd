@@ -6,8 +6,10 @@ import "./sideBar.scss";
 import { auth } from "../../../firebase";
 import { MdDashboard, MdMoney, MdOutlineMoneyOff } from "react-icons/md";
 import { SiGnusocial } from "react-icons/si";
-function Sidebar({ name, phone, email }) {
+import useUserData from "../../../hook/useUserData";
+function Sidebar({ name, phone, email, bonusPoints, userId }) {
   const navigate = useNavigate();
+  const {data} = useUserData();
   const handleSignOut = async () => {
     // Get the Firebase Auth instance
     try {
@@ -21,11 +23,18 @@ function Sidebar({ name, phone, email }) {
     } catch (error) {
       console.error("Error during logout:", error);
     }
+
   };
+  console.log(data, "data");
+  const user = data.find((user) => user.id === userId);
+  console.log(user, "user");
+
   return (
     <aside className="sidebar">
       <img src={"./dreamDay.jpeg"} width={70} height={70} alt="logo" />
-      <h2 style={{ color: "white", marginTop: "20px" }}>Bonus Points : 500</h2>
+      <h2 style={{ color: "white", marginTop: "20px" }}>
+        Bonus Points : {user?.bonus || 0}
+      </h2>
       <nav style={{ marginTop: "20px" }}>
         <div
           style={{
