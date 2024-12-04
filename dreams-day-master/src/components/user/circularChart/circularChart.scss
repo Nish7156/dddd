@@ -1,0 +1,38 @@
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); // Adjusts the number of columns based on screen size
+  gap: 20px; // Space between cards
+}
+
+.card {
+  cursor: default;
+  background-color: #f0f4ff; // Change background color as needed
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  color: #ffff;
+  h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #ffff;
+    }
+}
+
+
+
+.income-card {
+  background-color: #4a90e2; // Blue color for income
+}
+
+.expenses-card {
+  background-color: #50e3c2; // Green color for expenses
+}
+
+.cash-card {
+  background-color: #9013fe; // Purple color for cash
+}
+
+.profit-card {
+  background-color: #f39c12; // Orange color for profit
+}

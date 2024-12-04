@@ -1,0 +1,65 @@
+.user-dashboard {
+  display: flex;
+}
+
+.dashboard-content {
+  background-color: #f9fbff;
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.charts {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.expenses {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.expense-card {
+  flex: 1; /* Each card takes equal horizontal space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: var(--hover-bg-color);
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+    h4 {
+      color: white;
+    }
+  }
+}
+
+.expense-card h4 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .expenses {
+    flex-direction: column; /* Stacks cards vertically on smaller screens */
+  }
+
+  .expense-card {
+    flex: unset; /* Remove flex scaling for stacked layout */
+    width: 100%; /* Full width for stacked cards */
+  }
+}

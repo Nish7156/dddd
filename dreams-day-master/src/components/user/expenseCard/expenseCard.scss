@@ -1,0 +1,91 @@
+.expense-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: var(--hover-bg-color);
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+    h4 {
+      color: white;
+    }
+  }
+}
+
+.expense-card h4 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.expense-card p {
+  margin-top: 5px;
+  font-size: 16px;
+  color: #666;
+}
+
+.expense-card .expense-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #4f86f9;
+  color: #fff;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+}
+
+.expense-card .expense-button:hover {
+  background-color: var(--hover-bg-color);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .expense-card {
+    padding: 10px;
+  }
+
+  .expense-card h4 {
+    font-size: 16px;
+  }
+
+  .expense-card p {
+    font-size: 14px;
+  }
+
+  .expense-card .expense-button {
+    font-size: 14px;
+    padding: 8px 16px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .expense-card {
+    padding: 8px;
+  }
+
+  .expense-card h4 {
+    font-size: 14px;
+  }
+
+  .expense-card p {
+    font-size: 12px;
+  }
+
+  .expense-card .expense-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}

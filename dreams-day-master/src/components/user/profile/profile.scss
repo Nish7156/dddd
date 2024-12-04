@@ -1,0 +1,32 @@
+.profile {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #3a4c6c;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  margin-right: 20px;
+}
+
+.profile-info {
+  text-align: left;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.role {
+  font-size: 14px;
+  color: #b0b0b0;
+}
